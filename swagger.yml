@@ -1,0 +1,138 @@
+swagger: "2.0"
+info:
+  description: Swagger file
+  version: "1.0.0"
+  title: Swagger ReST Pacientes
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /pacientes:
+    get:
+      operationId: pacientes.read_all
+      tags:
+        - Pacientes
+      summary: Lista todos os Pacientes
+      description: Lista todos os Pacientes
+      responses:
+        200:
+          description: Sucesso na leitura de Pacientes
+          schema:
+            type: array
+            items:
+              properties:
+                idpaciente:
+                  type: string
+                fname:
+                  type: string
+                lname:
+                  type: string
+                dnasc:
+                  type: string
+                convenio:
+                  type: string
+                ncart:
+                  type: string
+                timestamp:
+                  type: string
+                  
+    post:
+      operationId: pacientes.create
+      tags:
+        - Pacientes
+      summary: Cria o contato de um paciente 
+      description: Rota responsável por criar um paciente
+      parameters:
+        - name: pacient
+          in: body
+          description: Pessoa a ser criada
+          required: True
+          schema:
+            type: object
+            properties:
+              fname:
+                type: string
+                description: Primeiro nome
+              lname:
+                type: string
+                description: Ultimo nome
+              idpaciente:
+                  type: string
+                  description: Matricula do paciente
+              fname:
+                  type: string
+                  description: Primeiro nome
+              lname:
+                  type: string
+                  description: Sobrenome do paciente
+              dnasc:
+                  type: string
+                  description: Data de nascimento
+              convenio:
+                  type: string
+                  description: Empresa do Convenio
+              ncart:
+                  type: string
+                  description: Numero da carterinha
+      responses:
+        201:
+          description: Sucesso ao criar um paciente
+          
+  /paciente/{idpac}:
+    get:
+      operationId: pacientes.read_one
+      tags:
+        - Pacientes
+      summary: Leitura de uma paciente de acordo com seu numero de matricula
+      description: Leitura de uma paciente de acordo com seu numero de matricula
+      parameters:
+        - name: idpac
+          in: path
+          description: numero do paciente
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso na leitura de uma cliente
+          schema:
+            properties:
+              idpaciente:
+                  type: string
+                  description: Matricula do paciente
+              fname:
+                  type: string
+                  description: Primeiro nome
+              lname:
+                  type: string
+                  description: Sobrenome do paciente
+              dnasc:
+                  type: string
+                  description: Data de nascimento
+              convenio:
+                  type: string
+                  description: Empresa do Convenio
+              ncart:
+                  type: string
+                  description: Numero da carterinha
+                  
+    delete:
+      operationId: pacientes.delete
+      tags:
+        - Pacientes
+      summary: Deletar um paciente pelo seu número de contato
+      description: Deletar um paciente pelo seu número de contato
+      parameters:
+        - name: idpac
+          in: path
+          description: numero do paciente
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso na leitura de uma cliente
+    
+    
