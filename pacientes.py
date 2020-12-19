@@ -7,13 +7,14 @@ from pymongo import MongoClient
 client = MongoClient("mongodb://localhost:27017/") # Local
 db = client.pacientes
 
+
 def get_dict_from_mongodb():
     itens_db = db.pacientes.find()
     PACIENTES = {}
     for i in itens_db:
             i.pop('_id') # retira id: criado automaticamente 
             item = dict(i)
-            PACIENTES[item["idpaciente"]] = (i)
+            PACIENTES[item[1]] = (i)
     return PACIENTES
 
 
