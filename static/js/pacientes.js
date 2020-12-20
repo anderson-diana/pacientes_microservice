@@ -53,7 +53,6 @@ ns.model = (function() {
         update: function(fname, lname) {
             let ajax_options = {
                 type: 'PUT',
-                url: 'api/clientes/' + lname,
                 accepts: 'application/json',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -73,7 +72,7 @@ ns.model = (function() {
         'delete': function(idpaciente) {
             let ajax_options = {
                 type: 'DELETE',
-                url: 'api/pacientes/' + idpaciente,
+                url: 'api/paciente/' + idpaciente,
                 accepts: 'application/json',
                 contentType: 'plain/text'
             };
