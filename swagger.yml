@@ -134,5 +134,43 @@ paths:
       responses:
         200:
           description: Sucesso na leitura de uma cliente
+          
+    put:
+      operationId: pacientes.update
+      tags:
+        - Pacientes
+      summary: Leitura de uma consulta de acordo com seu identificador
+      description: Leitura de uma consulta de acordo com seu identificador
+      parameters:
+        - name: idpac
+          in: path
+          description: identificador da consulta
+          type: string
+          required: True
+        - name: paciente
+          in: body
+          schema:
+            properties:
+              idpaciente:
+                  type: string
+                  description: Matricula do paciente
+              fname:
+                  type: string
+                  description: Primeiro nome
+              lname:
+                  type: string
+                  description: Sobrenome do paciente
+              dnasc:
+                  type: string
+                  description: Data de nascimento
+              convenio:
+                  type: string
+                  description: Empresa do Convenio
+              ncart:
+                  type: string
+                  description: Numero da carterinha
+      responses:
+        201:
+          description: Sucesso na leitura de uma cliente
     
     

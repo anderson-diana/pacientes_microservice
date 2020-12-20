@@ -111,9 +111,13 @@ def delete(idpac):
         abort(
             404, "O paciente {lname} nao encontrado".format(idpac=idpac)
         )
-        
 
-
-
-
-
+def update(idpac, paciente) :
+    if idpac in PACIENTES:
+        PACIENTES[idpac]["idpac"] = consulta.get("idpac")
+        PACIENTES[idpac]["timestamp"] = get_timestamp()
+        return PACIENTES[idpac]
+    else:
+        abort(
+            404, "A consulta com o identificador {idpac} nao foi encontrada".format(idpac=idpac)
+        )    
