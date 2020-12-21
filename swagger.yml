@@ -82,7 +82,7 @@ paths:
         201:
           description: Sucesso ao criar um paciente
           
-  /paciente/{idpac}:
+  /paciente/{idpaciente}:
     get:
       operationId: pacientes.read_one
       tags:
@@ -90,7 +90,7 @@ paths:
       summary: Leitura de uma paciente de acordo com seu numero de matricula
       description: Leitura de uma paciente de acordo com seu numero de matricula
       parameters:
-        - name: idpac
+        - name: idpaciente
           in: path
           description: numero do paciente
           type: string
@@ -126,7 +126,7 @@ paths:
       summary: Deletar um paciente pelo seu número de contato
       description: Deletar um paciente pelo seu número de contato
       parameters:
-        - name: idpac
+        - name: idpaciente
           in: path
           description: numero do paciente
           type: string
@@ -142,7 +142,7 @@ paths:
       summary: Leitura de uma consulta de acordo com seu identificador
       description: Leitura de uma consulta de acordo com seu identificador
       parameters:
-        - name: idpac
+        - name: idpaciente
           in: path
           description: identificador da consulta
           type: string

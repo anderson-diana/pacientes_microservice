@@ -104,9 +104,13 @@ ns.view = (function() {
             $lname.val('');
             $fname.val('').focus();
         },
-        update_editor: function(fname, lname) {
+        update_editor: function(idpaciente, fname, lname, dnasc, convenio, ncart) {
+            $idpaciente.val(idpaciente);
             $lname.val(lname);
             $fname.val(fname).focus();
+            $dnasc.val(dnasc);
+            $conveio.val(convenio);
+            $ncart.val(ncart);
         },
         build_table: function(pacients) {
             let rows = ''
@@ -117,8 +121,8 @@ ns.view = (function() {
             // did we get a people array?
             if (pacients) {
                 for (let i=0, l=pacients.length; i < l; i++) {
-                    rows += `<tr><td class="fname">${pacients[i].fname}</td><td class="lname">${pacients[i].lname}</td><td>${pacients[i].timestamp}</td></tr>`;
-                }
+                   rows += `<tr><td class="idpaciente">${pacients[i].idpaciente}</td><td class="fname">${pacients[i].fname}</td><td class="lname">${pacients[i].lname}</td><td class="dnasc">${pacients[i].dnasc}</td><td class="conveio">${pacients[i].convenio}</td><td class="ncart">${pacients[i].ncart}</td></tr>`;
+                 }
                 $('table > tbody').append(rows);
             }
         },
@@ -191,12 +195,12 @@ ns.controller = (function(m, v) {
     });
 
     $('#delete').click(function(e) {
-        let lname = $lname.val();
+        let idpaciente = $idpaciente.val();
 
         e.preventDefault();
 
-        if (validate('placeholder', lname)) {
-            model.delete(lname)
+        if (validate('placeholder', idpaciente)) {
+            model.delete(idpaciente)
         } else {
             alert('Problema com os parâmetros: primeiro ou último nome');
         }
@@ -212,8 +216,17 @@ ns.controller = (function(m, v) {
 
     $('table > tbody').on('dblclick', 'tr', function(e) {
         let $target = $(e.target),
-            fname,
-            lname;
+        idpaciente,
+        fname,
+        lname,
+        dnasc,
+        convenio,
+        ncart;
+            
+        idpaciente = $target
+            .parent()
+            .find('td.idpaciente')
+            .text();
 
         fname = $target
             .parent()
@@ -224,8 +237,24 @@ ns.controller = (function(m, v) {
             .parent()
             .find('td.lname')
             .text();
+            
+        dnasc = $target
+            .parent()
+            .find('td.dnasc')
+            .text();
+        
+        convenio = $target
+            .parent()
+            .find('td.conveio')
+            .text();
+        
+        ncart = $target
+            .parent()
+            .find('td.ncart')
+            .text();
 
-        view.update_editor(fname, lname);
+
+        view.update_editor(idpaciente, fname, lname, dnasc, convenio, ncart);
     });
 
     // Handle the model events

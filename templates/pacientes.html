@@ -13,38 +13,113 @@
     </script>
   </head>
   <body>
-    <div class="container">
-      <h1> Cadastro do paciente </h1>
-      <div class="section editor">
-          <label for="idpaci">Identificacao do paciente: <input id="idpaciente" class="form-control" type="text"> </label> <br>
-          <label for="fname4">Primeiro Nome: <input id="fname" class="form-control" type="text"> </label> <br>
-          <label for="lname4">Sobrenome: <input id="lname" type="text" class="form-control"> </label> <br>
-          <label for="dnasc4">Data de nascimento: <input id="dnasc" type="text" class="form-control"> </label> <br>
-          <label for="conveio4">Conveio: <input id="conveio" type="text" class="form-control"> </label> <br>
-          <label for="ncart4">Número da carterinha: <input id="ncart" type="text" class="form-control"> </label> <br>
-        <br>
-        <button id="create" class="btn btn-primary">Create</button> <button id="reset" class="btn btn-info">Read</button>  <button id="update" class="btn btn-warning">Update</button>
-        <button id="delete" class="btn btn-danger">Delete</button> </div>
-      <br>
-      <blockquote>
-        <p>Clique duas vezes nos nomes abaixo para editar.</p>
-      </blockquote>
+  <body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="" class="vsc-initialized">
+    
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">SmartLine - fila inteligente</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Pacientes</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="#">Consultas</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  
+  
+  <div class="container">
+   <div class="col-md-8 order-md-1 px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h3 class="mb-3">Cadastro do Paciente</h3>
+      <form class="needs-validation" novalidate="">
+        
+            <div class="row">
+                <div class="col-md-12 mb-6">
+                  <label for="username">Identificacao do paciente:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="idpaciente" placeholder="Numero Paciente" required="">
+                  </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="idpass">Primeiro Nome: </label>
+                  <input type="text" class="form-control" id="fname" placeholder="" value="" required="">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="idconsul">Sobrenome: </label>
+                  <input type="text" class="form-control" id="lname" placeholder="" value="" required="">
+                </div>
+            </div>
+  
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="idpass">Data de nascimento: </label>
+                  <input type="text" class="form-control" id="dnasc" placeholder="" value="" required="">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="idconsul">Convenio: </label>
+                  <input type="text" class="form-control" id="conveio" placeholder="" value="" required="">
+                </div>
+            </div>          
+            
+            
+            <div class="row">
+                <div class="col-md-12 mb-6">
+                  <label for="username">Número da carterinha:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">#</span>
+                    </div>
+                    <input type="text" class="form-control" id="ncart" placeholder="Numero Paciente" required="">
+                  </div>
+                </div>
+            </div>
+          <br>  
+          <div class="row">
+              <div class="col text-center">
+                <button id="create"  class="btn btn-primary ">Cadastrar</button>
+                <button id="update" class="btn btn-warning"  >Atualizar</button>
+                <button id="delete" class="btn btn-danger">Deletar</button>
+              </div>
+            </div>
+            
+      </form>
+    </div>
+            
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h3 class="display-5">Pacientes Cadastrados</h3>
+</div>
       <div class="conteudo">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Primeiro Nome</th>
-              <th>Ultimo Nome</th>
-              <th>Update Time</th>
+              <th>ID Paciente</th>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Data de nascimento</th>
+              <th>Convenio</th>
+              <th>Carterinha</th>
             </tr>
           </thead>
           <tbody>
           </tbody>
         </table>
       </div>
+      
+      <br><br>
       <div class="error"> </div>
     </div>
-    <script src="static/js/pacientes.js"></script>
+    <script src="static/js/lala.js"></script>
 
     <!-- Dependencias Bootstrap: jQuery.js, Popper.js, Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

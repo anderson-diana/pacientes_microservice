@@ -12,22 +12,22 @@ def get_timestamp():
     
 PACIENTES = {
     "001": {
-        "idpac": "001",
+        "idpaciente": "001",
         "lname": "Jose",
         "fname": "da Silva",
         "dnasc": "03/12/2000",
         "convenio": "Itau",
-        "ncart"   : "Dados",
+        "ncart"   : "12121313131",
         "timestamp": get_timestamp(),
         
     },
       "002": {
-        "idpac": "002",
+        "idpaciente": "002",
         "lname": "Jose",
         "fname": "da Silva",
         "dnasc": "03/12/2000",
         "convenio": "Itau",
-        "ncart"   : "Dados",
+        "ncart"   : "121213131666",
         "timestamp": get_timestamp(),
     },
 }
@@ -87,37 +87,38 @@ def create(pacient):
         )
         
         
-def read_one(idpac):
+def read_one(idpaciente):
     #PACIENTES = get_dict_from_mongodb()
-    if idpac in PACIENTES:
-        pacient = PACIENTES.get(idpac)
+    if idpaciente in PACIENTES:
+        pacient = PACIENTES.get(idpaciente)
     else:
         abort(
-            404, "paciente nao encontrado {idpac} nao encontrada".seformat(idpac=idpac)
+            404, "paciente nao encontrado {idpaciente} nao encontrada".format(idpaciente=idpaciente)
         )
     return pacient
     
     
-def delete(idpac):
+def delete(idpaciente):
     #PACIENTES = get_dict_from_mongodb()
 #    query = { "idpac": idpac }
-    if idpac in PACIENTES:
+    if idpaciente in PACIENTES:
         #db.pacientes.delete_one(query)
-        del PACIENTES[idpac]
+        del PACIENTES[idpaciente]
         return make_response(
-            "{idpac} deletado com sucesso".format(idpac=idpac), 200
+            "{idpaciente} deletado com sucesso".format(idpaciente=idpaciente), 200
         )
     else:
         abort(
-            404, "O paciente {lname} nao encontrado".format(idpac=idpac)
+            404, "O paciente {idpaciente} nao encontrado".format(idpaciente=idpaciente)
         )
 
-def update(idpac, paciente) :
-    if idpac in PACIENTES:
-        PACIENTES[idpac]["idpac"] = consulta.get("idpac")
-        PACIENTES[idpac]["timestamp"] = get_timestamp()
-        return PACIENTES[idpac]
+def update(idpaciente, paciente) :
+    if idpaciente in PACIENTES:
+        PACIENTES[idpaciente]["idpaciente"] = consulta.get("idpaciente")
+    
+        PACIENTES[idpaciente]["timestamp"] = get_timestamp()
+        return PACIENTES[idpaciente]
     else:
         abort(
-            404, "A consulta com o identificador {idpac} nao foi encontrada".format(idpac=idpac)
+            404, "A consulta com o identificador {idpaciente} nao foi encontrada".format(idpaciente=idpaciente)
         )    
